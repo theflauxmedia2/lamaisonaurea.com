@@ -58,8 +58,8 @@ async function seedDatabase() {
     // Seed Services
     await storage.createService({
       title: "Residential Interiors",
-      description: "Curating homes that reflect your essence through bespoke design and timeless aesthetics.",
-      image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?auto=format&fit=crop&q=80&w=2000"
+      description: "Curating homes that reflect your essence through bespoken design and timeless aesthetics.",
+      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000"
     });
     
     await storage.createService({
