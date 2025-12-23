@@ -1,0 +1,255 @@
+🧠 ROLE & MINDSET
+
+You are a top-tier luxury web designer, art director, and UX strategist specializing in high-end interior design brands.
+Your work feels editorial, architectural, emotional, and timeless — never trendy or loud.
+
+Your goal is to design a complete multi-page website that feels:
+	•	Visually rich
+	•	Calm & effortless
+	•	Emotion-driven
+	•	Premium & luxurious
+
+⸻
+
+🏛️ BRAND OVERVIEW
+
+Design a full website for La Maison Aurea, a luxury interior design studio.
+
+Brand Philosophy
+	•	Timeless luxury
+	•	Soulful interiors
+	•	Harmony & balance
+	•	Emotional resonance
+	•	Quiet elegance
+
+Brand Voice
+	•	Soft
+	•	Poetic
+	•	Confident
+	•	Minimal
+	•	Refined
+
+⸻
+
+🎨 COLOR PALETTE
+
+Use only neutral luxury tones:
+	•	Primary: Soft White / Ivory
+	•	Secondary: Charcoal Black
+	•	Accent: Warm Brown / Light Brown / Earthy Beige
+	•	Optional: Muted gold or bronze (very subtle)
+
+⚠️ Avoid bright colors, gradients, neon, or flashy effects.
+
+⸻
+
+✒️ TYPOGRAPHY
+	•	Headings: Elegant serif (editorial, high-fashion feel)
+	•	Body text: Clean modern sans-serif
+	•	Generous line spacing
+	•	Light to regular font weights
+	•	Typography should feel breathable and expensive
+
+⸻
+
+🖼️ VISUAL DIRECTION (CRITICAL)
+
+This website is IMAGE-LED, not text-heavy.
+	•	Full-width luxury interior photography
+	•	Editorial layouts
+	•	Large margins & white space
+	•	Soft transitions
+	•	Images must dominate the experience
+	•	Text supports visuals, never competes
+
+Think luxury interior magazine meets architecture studio.
+
+⸻
+
+📌 WEBSITE STRUCTURE (ALL PAGES)
+
+⸻
+
+🏠 1. HOME PAGE
+
+Hero Section
+	•	Fullscreen image or subtle video loop
+	•	Center-aligned minimal text
+
+Headline:
+
+Timeless Luxury. Soulful Design.
+
+Subtext (small):
+
+Interiors that reflect harmony, balance, and emotion.
+
+	•	Smooth fade-in animation
+	•	Scroll indicator (minimal)
+
+⸻
+
+Philosophy Section
+
+Split layout:
+	•	Left: Large interior image
+	•	Right: Short poetic copy
+
+Sample copy:
+
+At La Maison Aurea, we design spaces that speak quietly yet profoundly.
+Every interior is a reflection of emotion, balance, and timeless elegance.
+
+⸻
+
+Signature Projects Preview
+	•	Large image grid
+	•	Hover reveals project name
+	•	No borders
+	•	No clutter
+
+⸻
+
+Design Values
+
+Minimal words only:
+	•	Harmony
+	•	Balance
+	•	Emotion
+	•	Timelessness
+
+Each word paired with subtle line separators or soft visuals.
+
+⸻
+
+Closing CTA
+
+Center aligned:
+
+Step into a world where interiors tell your story.
+
+Buttons:
+	•	View Projects
+	•	Contact Studio
+
+⸻
+
+📖 2. ABOUT PAGE
+
+Purpose: Emotional connection & trust
+
+Layout:
+	•	Editorial magazine style
+	•	Full-width images
+	•	Minimal text blocks
+
+Sections:
+	•	Brand story
+	•	Philosophy
+	•	Design mindset
+
+Copy tone:
+Soft, poetic, intentional.
+
+⸻
+
+🖼️ 3. PROJECTS PAGE
+
+Purpose: Visual impact
+
+Layout:
+	•	Masonry or grid
+	•	Large visuals
+	•	Smooth hover effects
+
+Each project opens into:
+	•	Full-screen gallery
+	•	Minimal project description
+	•	Focus on textures, light, materials
+
+⸻
+
+🛋️ 4. SERVICES PAGE
+
+List services in an elegant, minimal format:
+	•	Residential Interiors
+	•	Luxury Living Spaces
+	•	Bedroom & Private Spaces
+	•	Concept Design
+	•	Turnkey Solutions
+
+Each service:
+	•	One image
+	•	Short refined description
+	•	No bullet clutter
+
+⸻
+
+🧩 5. PROJECT DETAIL PAGE
+
+For each project:
+	•	Full-width hero image
+	•	Gallery-first layout
+	•	Minimal text
+	•	Soft scrolling
+	•	Elegant captions if needed
+
+⸻
+
+📷 6. GALLERY / MOOD PAGE (Optional but Premium)
+	•	Artistic shots
+	•	Detail photography
+	•	Lighting, textures, materials
+	•	Acts like a visual moodboard
+
+⸻
+
+📞 7. CONTACT PAGE
+
+Design should feel calm & welcoming.
+
+Elements:
+	•	Minimal form
+	•	Elegant typography
+	•	Studio philosophy line
+	•	Instagram link
+	•	Website link displayed tastefully
+
+⸻
+
+📱 RESPONSIVENESS
+	•	Perfect mobile experience
+	•	Images resize beautifully
+	•	Text remains readable
+	•	Touch-friendly scrolling
+
+⸻
+
+🎥 ANIMATIONS & INTERACTIONS
+	•	Fade-ins
+	•	Slow parallax on images
+	•	Smooth page transitions
+	•	No over-animation
+	•	Everything must feel calm & premium
+
+⸻
+
+🚫 DO NOT USE
+	•	Bright colors
+	•	Heavy shadows
+	•	Over-designed buttons
+	•	Too much text
+	•	Cheap stock visuals
+	•	Loud UI elements
+
+⸻
+
+🎯 FINAL GOAL
+
+The website should feel like:
+
+A luxury interior design studio that doesn’t need to shout to be noticed.
+
+Client reaction should be:
+
+“This looks expensive. This feels exactly like our brand.”
