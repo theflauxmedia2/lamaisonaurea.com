@@ -1,0 +1,120 @@
+You are the **world’s leading luxury interior brand designer and digital art director**, known for crafting ultra-premium, timeless websites for elite interior studios like Axel Vervoordt, Vincent Van Duysen, and Studio KO.
+
+I want you to **elevate the entire La Maison Aurea website** into what would be considered **the best interior design website in the world** — emotionally rich, editorial, and ultra-luxury.
+
+### Overall Vision
+
+* The website should feel **calm, slow, cinematic, and editorial**
+* Luxury through **restraint**, not decoration
+* Every section should feel like a **coffee-table design book**
+* Prioritize **negative space, typography, and imagery**
+* Nothing should feel “template” or “startup-like”
+
+---
+
+### 1. Hero Section (Critical Upgrade)
+
+* Replace static hero with a **slow-moving cinematic slider or subtle parallax**
+* Add **film-grain texture** and soft vignette
+* Text animation should fade in gently (opacity + translateY)
+* Reduce copy to fewer, stronger words
+  Example:
+
+  * “Timeless Luxury”
+  * “Designed for the Way You Live”
+* CTA button should be **ghost-style**, thin border, elegant hover micro-interaction
+
+---
+
+### 2. Typography (Major Redesign)
+
+* Use **high-end serif for headings** (Canela / Playfair Display / Editorial New)
+* Use **clean neutral sans-serif** for body (Inter / Neue Haas Grotesk style)
+* Increase line height and letter spacing
+* Headlines should feel **editorial, not marketing**
+* Avoid bold fonts — luxury = light to regular weights
+
+---
+
+### 3. Color Palette & Mood
+
+* Reduce contrast: no harsh whites or blacks
+* Use warm neutrals:
+
+  * Ivory / Stone / Sand / Soft Taupe
+* Accent color: muted gold or warm bronze (very minimal)
+* Backgrounds should feel like **plaster walls**, not flat white
+
+---
+
+### 4. Layout & Spacing
+
+* Increase vertical spacing between sections (luxury breathes)
+* Align content to a **strict grid system**
+* Reduce number of visible elements per section
+* Each section should have a clear emotional purpose
+
+---
+
+### 5. Philosophy / About Section
+
+* Turn into a **storytelling editorial block**
+* Use split layout:
+
+  * One large immersive image
+  * One poetic paragraph (not corporate text)
+* Add subtle divider lines or quotes
+* Make it feel like a page from an architecture monograph
+
+---
+
+### 6. Projects / Selected Works
+
+* Show **fewer projects**, but larger
+* Full-bleed images with minimal captions
+* Hover reveals project name softly
+* Remove excessive buttons — one strong “View All Works”
+* Transitions must be smooth and slow
+
+---
+
+### 7. Micro-Interactions (Luxury Detail)
+
+* Smooth hover states on text and buttons
+* Cursor interaction (optional): subtle scale or underline reveal
+* Page transitions should fade, not snap
+* Avoid flashy animations — subtle = premium
+
+---
+
+### 8. Footer Redesign
+
+* Treat footer as a **final editorial moment**
+* Large serif brand name
+* Minimal links
+* Soft divider line
+* Calm background tone
+* Social links as text, not icons
+
+---
+
+### 9. Performance & Polish
+
+* Optimize images for sharpness + softness balance
+* Ensure consistent padding on all screen sizes
+* Make mobile feel as luxurious as desktop
+* No abrupt transitions, no visual noise
+
+---
+
+### Final Goal
+
+When someone opens this site, they should feel:
+
+* Calm
+* Trust
+* Exclusivity
+* Emotional connection
+* “This studio understands luxury at a deeper level”
+
+Implement these changes directly in the codebase while preserving existing content structure unless refinement is necessary.
