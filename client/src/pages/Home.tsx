@@ -4,11 +4,37 @@ import { Button } from "@/components/Button";
 import { Link } from "wouter";
 import { useProjects } from "@/hooks/use-projects";
 import { ProjectCard } from "@/components/ProjectCard";
-import { ArrowRight, Star } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowRight, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+
+const heroImages = [
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000",
+  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=2000",
+  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000",
+  "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=2000",
+  "https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?auto=format&fit=crop&q=80&w=2000",
+];
 
 export default function Home() {
   const { data: projects, isLoading } = useProjects();
+  const [currentImageIdx, setCurrentImageIdx] = useState(0);
+  
+  // Auto-advance images every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIdx((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const goToPrevious = () => {
+    setCurrentImageIdx((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
+
+  const goToNext = () => {
+    setCurrentImageIdx((prev) => (prev + 1) % heroImages.length);
+  };
   
   // Filter featured projects, take top 3
   const featuredProjects = projects?.filter(p => p.isFeatured).slice(0, 3) || [];
@@ -17,42 +43,105 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
       
-      {/* Hero Section */}
+      {/* Hero Section with Image Slider */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* Abstract Background Elements */}
+        {/* Image Slider Background */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-[#EAE8E4] opacity-40"></div>
-          {/* Unsplash hero architectural detail */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImageIdx}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url(${heroImages[currentImageIdx]})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+          </AnimatePresence>
+          
+          {/* Vignette overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40"></div>
+          
+          {/* Film grain texture */}
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-20"
-            style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000&auto=format&fit=crop)' }}
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=\"0 0 400 400\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"noiseFilter\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.9\" numOctaves=\"4\" result=\"noise\" /%3E%3CfeDisplacementMap in=\"SourceGraphic\" in2=\"noise\" scale=\"1\" /%3E%3C/filter%3E%3Crect width=\"400\" height=\"400\" filter=\"url(%23noiseFilter)\" /%3E%3C/svg%3E')",
+            }}
           ></div>
         </div>
 
+        {/* Content */}
         <div className="container mx-auto px-6 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <p className="text-sm md:text-base tracking-[0.3em] uppercase mb-6 text-muted-foreground">
+            <p className="text-sm md:text-base tracking-[0.3em] uppercase mb-6 text-white/80">
               Interior Design Studio
             </p>
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-foreground leading-tight mb-8">
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-8">
               Timeless Luxury.<br />
-              <span className="italic font-light text-accent">Soulful</span> Design.
+              <span className="italic font-light text-amber-100">Soulful</span> Design.
             </h1>
-            <p className="max-w-xl mx-auto text-lg text-muted-foreground leading-relaxed mb-12 font-light">
+            <p className="max-w-xl mx-auto text-lg text-white/70 leading-relaxed mb-12 font-light">
               We create spaces that breathe, merging architectural precision with 
               organic warmth to craft homes that feel like sanctuaries.
             </p>
             <Link href="/projects">
-              <Button size="lg" className="rounded-none">
+              <Button 
+                size="lg" 
+                className="rounded-none bg-white text-black hover:bg-white/90 border border-white"
+              >
                 View Portfolio
               </Button>
             </Link>
           </motion.div>
         </div>
+
+        {/* Slider Controls */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-6">
+          {/* Image counter */}
+          <div className="flex gap-2">
+            {heroImages.map((_, idx) => (
+              <motion.button
+                key={idx}
+                onClick={() => setCurrentImageIdx(idx)}
+                className={`h-1 transition-all ${
+                  idx === currentImageIdx ? "w-8 bg-white" : "w-2 bg-white/40"
+                }`}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Navigation Arrows */}
+        <motion.button
+          onClick={goToPrevious}
+          className="absolute left-6 top-1/2 -translate-y-1/2 z-20 p-3 text-white/60 hover:text-white transition-colors"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Previous image"
+        >
+          <ChevronLeft className="w-8 h-8" />
+        </motion.button>
+
+        <motion.button
+          onClick={goToNext}
+          className="absolute right-6 top-1/2 -translate-y-1/2 z-20 p-3 text-white/60 hover:text-white transition-colors"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Next image"
+        >
+          <ChevronRight className="w-8 h-8" />
+        </motion.button>
       </section>
 
       {/* Philosophy / Intro */}
