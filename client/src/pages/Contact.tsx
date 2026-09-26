@@ -53,8 +53,8 @@ export default function Contact() {
               <div className="space-y-8 pt-8 border-t border-border">
                 <div>
                   <h3 className="text-sm uppercase tracking-widest text-muted-foreground mb-2">Studio</h3>
-                  <p className="text-xl font-serif">New York</p>
-                  <p className="text-foreground/70 font-light">123 Design District Blvd, NY 10012</p>
+                  <p className="text-xl font-serif">BTM Layout, Bengaluru</p>
+                  <p className="text-foreground/70 font-light">Bengaluru, Karnataka</p>
                 </div>
                 <div>
                   <h3 className="text-sm uppercase tracking-widest text-muted-foreground mb-2">Email</h3>
@@ -64,7 +64,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-sm uppercase tracking-widest text-muted-foreground mb-2">Phone</h3>
-                  <p className="text-xl font-serif">+1 (555) 123-4567</p>
+                  <p className="text-xl font-serif">+91 98765 43210</p>
                 </div>
               </div>
             </div>

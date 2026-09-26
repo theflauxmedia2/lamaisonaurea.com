@@ -1,48 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* HSL Color Palette - Luxury Minimalist */
-  /* Ivory / Soft White Background */
-  --background: 40 20% 97%;
-  /* Charcoal Black Text */
-  --foreground: 0 0% 15%;
+  /* Palette: warm ivory + charcoal + desaturated brass */
+  --background: 38 23% 96%;
+  --foreground: 0 0% 12%;
   
-  /* Primary Action / Brand Color (Deep Charcoal) */
-  --primary: 0 0% 15%;
-  --primary-foreground: 40 20% 97%;
+  --primary: 0 0% 10%;
+  --primary-foreground: 38 23% 96%;
   
-  /* Secondary / Muted (Warm Grey) */
-  --secondary: 40 10% 90%;
-  --secondary-foreground: 0 0% 15%;
+  --secondary: 38 12% 90%;
+  --secondary-foreground: 0 0% 12%;
   
-  /* Accent (Warm Brown / Earthy) */
-  --accent: 30 25% 50%;
+  --accent: 35 28% 52%;
   --accent-foreground: 0 0% 100%;
   
-  /* Muted Text */
-  --muted: 40 10% 90%;
-  --muted-foreground: 0 0% 40%;
+  --muted: 38 10% 90%;
+  --muted-foreground: 0 0% 42%;
   
-  /* Borders (Subtle) */
-  --border: 0 0% 85%;
-  --input: 0 0% 85%;
-  --ring: 0 0% 15%;
+  --border: 0 0% 82%;
+  --input: 0 0% 82%;
+  --ring: 0 0% 18%;
   
-  /* Card Background (Slightly Lighter than page) */
   --card: 0 0% 100%;
-  --card-foreground: 0 0% 15%;
+  --card-foreground: 0 0% 12%;
 
-  --destructive: 0 84% 60%;
+  --destructive: 0 70% 46%;
   --destructive-foreground: 0 0% 98%;
 
-  --radius: 0rem; /* Sharp corners for architectural feel */
+  --radius: 0rem;
   
-  --font-serif: 'Playfair Display', serif;
-  --font-sans: 'DM Sans', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Spacing scale */
+  --space-xl: 7rem;
+  --space-lg: 4.5rem;
+  --space-md: 2.5rem;
+  --space-sm: 1.25rem;
 }
 
 @layer base {
@@ -52,10 +50,13 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
     @apply tracking-tight font-normal;
+    letter-spacing: -0.01em;
   }
 }
 

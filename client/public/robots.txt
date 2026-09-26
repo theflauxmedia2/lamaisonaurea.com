@@ -1,0 +1,8 @@
+# La Maison Aurea – Interior Design Studio
+# https://lamaisonaurea.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://lamaisonaurea.com/sitemap.xml

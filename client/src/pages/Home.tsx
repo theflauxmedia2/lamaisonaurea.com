@@ -3,41 +3,82 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { Link } from "wouter";
 import { useProjects } from "@/hooks/use-projects";
+import { getAllProjects } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ArrowRight, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const heroImages = [
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000",
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=2000",
-  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000",
-  "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=2000",
-  "https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?auto=format&fit=crop&q=80&w=2000",
+  "/images/000.webp",
+  "/images/001.webp",
+  "/images/002.webp",
+  "/images/003.webp",
+  "/images/004.webp",
+  "/images/005.webp",
+  "/images/006.webp",
+  "/images/007.webp",
+  "/images/008.webp",
+  "/images/009.webp",
+  "/images/010.webp",
+  "/images/011.webp",
+  "/images/012.webp",
+  "/images/013.webp",
+  "/images/014.webp",
 ];
 
 export default function Home() {
-  const { data: projects, isLoading } = useProjects();
+  const { data: projects, isLoading, isError } = useProjects();
+  const displayProjects = !isError && projects?.length ? projects : getAllProjects();
   const [currentImageIdx, setCurrentImageIdx] = useState(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   
   // Auto-advance images every 5 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIdx((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
+    const startInterval = () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      intervalRef.current = setInterval(() => {
+        setCurrentImageIdx((prev) => (prev + 1) % heroImages.length);
+      }, 5000);
+    };
+
+    startInterval();
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
   }, []);
 
+  const resetAutoAdvance = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = setInterval(() => {
+      setCurrentImageIdx((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+  };
+
   const goToPrevious = () => {
-    setCurrentImageIdx((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+    setCurrentImageIdx((prev) => {
+      const newIdx = (prev - 1 + heroImages.length) % heroImages.length;
+      return newIdx;
+    });
+    resetAutoAdvance();
   };
 
   const goToNext = () => {
-    setCurrentImageIdx((prev) => (prev + 1) % heroImages.length);
+    setCurrentImageIdx((prev) => {
+      const newIdx = (prev + 1) % heroImages.length;
+      return newIdx;
+    });
+    resetAutoAdvance();
   };
   
   // Filter featured projects, take top 3
-  const featuredProjects = projects?.filter(p => p.isFeatured).slice(0, 3) || [];
+  const featuredProjects = displayProjects.filter((p) => p.isFeatured).slice(0, 3);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -93,14 +134,25 @@ export default function Home() {
               We create spaces that breathe, merging architectural precision with 
               organic warmth to craft homes that feel like sanctuaries.
             </p>
-            <Link href="/projects">
-              <Button 
-                size="lg" 
-                className="rounded-none bg-white text-black hover:bg-white/90 border border-white"
-              >
-                View Portfolio
-              </Button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/projects">
+                <Button
+                  size="lg"
+                  className="rounded-none bg-white text-black hover:bg-white/90 border border-white px-7"
+                >
+                  View Portfolio
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-none border-white/60 text-white hover:bg-white/10 px-7"
+                >
+                  Book a Consultation
+                </Button>
+              </Link>
+            </div>
           </motion.div>
         </div>
 
@@ -111,7 +163,10 @@ export default function Home() {
             {heroImages.map((_, idx) => (
               <motion.button
                 key={idx}
-                onClick={() => setCurrentImageIdx(idx)}
+                onClick={() => {
+                  setCurrentImageIdx(idx);
+                  resetAutoAdvance();
+                }}
                 className={`h-1 transition-all ${
                   idx === currentImageIdx ? "w-8 bg-white" : "w-2 bg-white/40"
                 }`}
@@ -144,6 +199,17 @@ export default function Home() {
         </motion.button>
       </section>
 
+      {/* Press / Credibility */}
+      <section className="py-10 bg-[#f7f5f1] border-b border-border/60">
+        <div className="container mx-auto px-6 md:px-12 flex flex-wrap items-center justify-center gap-10 text-sm tracking-[0.25em] uppercase text-muted-foreground">
+          <span className="text-foreground/70">Featured In</span>
+          <span className="opacity-70">Architectural Digest</span>
+          <span className="opacity-70">Dezeen</span>
+          <span className="opacity-70">Interior Design</span>
+          <span className="opacity-70">Wallpaper*</span>
+        </div>
+      </section>
+
       {/* Philosophy / Intro */}
       <section className="py-24 md:py-32 bg-white">
         <div className="container mx-auto px-6 md:px-12">
@@ -154,10 +220,9 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              {/* Unsplash luxury interior */}
-              <img 
-                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200&auto=format&fit=crop" 
-                alt="Philosophy" 
+              <img
+                src="/images/005.webp"
+                alt="Philosophy"
                 className="w-full h-auto aspect-[3/4] object-cover"
               />
             </motion.div>
@@ -226,6 +291,58 @@ export default function Home() {
                 View All Works
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Preview */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-12">
+            <div className="max-w-xl">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">
+                Gallery
+              </p>
+              <h2 className="font-serif text-4xl md:text-5xl mb-4">
+                A glimpse inside our portfolio of spaces.
+              </h2>
+              <p className="text-muted-foreground text-lg font-light">
+                A curated selection of details, vignettes, and rooms. Explore the full gallery to
+                wander through our projects in images.
+              </p>
+            </div>
+            <Link href="/gallery">
+              <Button
+                variant="outline"
+                className="rounded-none border-foreground text-foreground hover:bg-foreground hover:text-background px-6 py-3"
+              >
+                View Full Gallery
+              </Button>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {["/images/000.webp", "/images/001.webp", "/images/002.webp", "/images/003.webp"].map(
+              (src, idx) => (
+                <motion.div
+                  key={src}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.6, delay: idx * 0.05 }}
+                  className={`relative overflow-hidden bg-muted/40 rounded-sm ${
+                    idx === 0 || idx === 3 ? "aspect-[4/5]" : "aspect-[3/4]"
+                  }`}
+                >
+                  <img
+                    src={src}
+                    alt={`Gallery preview ${idx + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                </motion.div>
+              ),
+            )}
           </div>
         </div>
       </section>
